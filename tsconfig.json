@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    //  Собираем все через webpack,так что не важно
+    "outDir": "./dist/",
+    "noImplicitAny": true,
+    // "module": "es6",
+    // Для поддержки большинства браузеров
+    "target": "ES5",
+    "module": "ESNext",
+    "jsx": "react-jsx",
+    // Компилятор будет обрабатывать не только TS файлы,но и JS файлы
+    "allowJs": true,
+    "moduleResolution": "node",
+    // Для абсолютного импорта
+    // "baseUrl": ".",
+    // включаем два пункта,в доке сказано включать при версии тайпскрипта > 2.7
+    // позволяет импортировать с помощью import а не require
+    "esModuleInterop": true,
+    // позволяет импортировать без *
+    "allowSyntheticDefaultImports": true
+  },
+  // Из доки копируем две строки вставляем (ГУГЛИТЬ ТС КОНФИГ ФАЙЛ ВЕБПАК)
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
+}
