@@ -1,14 +1,12 @@
-import React, { Suspense, useContext, useState } from 'react'
-import { Counter } from './components/counter/counter'
+import { Suspense, } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-import { AboutPageAsync } from './pages/about/about-page-async'
-import { MainPageAsync } from './pages/main/main-page-async'
 
 import './styles/index.scss'
-import { Theme, ThemeContext } from './theme/ThemeContext'
-import { useTheme } from './theme/useTheme'
-import { classNames } from './helpers/classNames/classNames'
+import { classNames } from 'shared/lib/classNames/classNames'
+import { useTheme } from './providers/themeProvider'
+import { AboutPage } from 'pages/about'
+import { MainPage } from 'pages/main'
 
 
 
@@ -22,11 +20,10 @@ const App = () => {
       <Link to={'/about'}>О сайте</Link>
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
-          <Route path={'/about'} element={<AboutPageAsync />} />
-          <Route path={'/'} element={<MainPageAsync />} />
+          <Route path={'/about'} element={<AboutPage />} />
+          <Route path={'/'} element={<MainPage />} />
         </Routes>
       </Suspense>
-      <Counter />
     </div>
   )
 }
